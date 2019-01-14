@@ -29,12 +29,14 @@ const num = "7316717653133062491922511967442657474235534919493496983520312774506
  
 let numArr = num.split('');
 let max = 0;
+let product;
 
 while (numArr.length > 3) {
-    const [ a, b, c, d, ...rest ] = numArr;
-    const product = a * b * c * d;
-    max = product > max ? product : max;
-    numArr = [ b, c, d, ...rest];
+	const nums = numArr.slice(0,13);
+  product = nums.reduce((acc, n) => acc * n);
+  max = product > max ? product : max;
+  numArr = numArr.slice(1);
 }
 
 console.log(max);
+// Output:: 23514624000;
